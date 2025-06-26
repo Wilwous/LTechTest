@@ -6,36 +6,33 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		7C7A87D92E0D72EA00F9C685 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A87CF2E0D72EA00F9C685 /* Assets.xcassets */; };
+		7C7A87DA2E0D72EA00F9C685 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7C7A87D12E0D72EA00F9C685 /* LaunchScreen.storyboard */; };
+		7C7A87DC2E0D72EA00F9C685 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A87D42E0D72EA00F9C685 /* AppDelegate.swift */; };
+		7C7A87DD2E0D72EA00F9C685 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A87D62E0D72EA00F9C685 /* SceneDelegate.swift */; };
+		7C7A87DE2E0D72EA00F9C685 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C7A87D72E0D72EA00F9C685 /* ViewController.swift */; };
+		7C7A87E12E0D741C00F9C685 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7A87E02E0D741C00F9C685 /* Alamofire */; };
+		7C7A87E42E0D7C6500F9C685 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7C7A87E32E0D7C6500F9C685 /* SnapKit */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		7C7A87B52E0D71C400F9C685 /* LTechTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LTechTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7C7A87CF2E0D72EA00F9C685 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7C7A87D02E0D72EA00F9C685 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7C7A87D42E0D72EA00F9C685 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7C7A87D52E0D72EA00F9C685 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7C7A87D62E0D72EA00F9C685 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7C7A87D72E0D72EA00F9C685 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
-
-/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		7C7A87C72E0D71C700F9C685 /* Exceptions for "LTechTest" folder in "LTechTest" target */ = {
-			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
-			membershipExceptions = (
-				Info.plist,
-			);
-			target = 7C7A87B42E0D71C400F9C685 /* LTechTest */;
-		};
-/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
-
-/* Begin PBXFileSystemSynchronizedRootGroup section */
-		7C7A87B72E0D71C400F9C685 /* LTechTest */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			exceptions = (
-				7C7A87C72E0D71C700F9C685 /* Exceptions for "LTechTest" folder in "LTechTest" target */,
-			);
-			path = LTechTest;
-			sourceTree = "<group>";
-		};
-/* End PBXFileSystemSynchronizedRootGroup section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		7C7A87B22E0D71C400F9C685 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7A87E12E0D741C00F9C685 /* Alamofire in Frameworks */,
+				7C7A87E42E0D7C6500F9C685 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,7 +42,7 @@
 		7C7A87AC2E0D71C400F9C685 = {
 			isa = PBXGroup;
 			children = (
-				7C7A87B72E0D71C400F9C685 /* LTechTest */,
+				7C7A87D82E0D72EA00F9C685 /* LTechTest */,
 				7C7A87B62E0D71C400F9C685 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -56,6 +53,35 @@
 				7C7A87B52E0D71C400F9C685 /* LTechTest.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7C7A87D22E0D72EA00F9C685 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				7C7A87CF2E0D72EA00F9C685 /* Assets.xcassets */,
+				7C7A87D12E0D72EA00F9C685 /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		7C7A87D32E0D72EA00F9C685 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				7C7A87D42E0D72EA00F9C685 /* AppDelegate.swift */,
+				7C7A87D62E0D72EA00F9C685 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		7C7A87D82E0D72EA00F9C685 /* LTechTest */ = {
+			isa = PBXGroup;
+			children = (
+				7C7A87D32E0D72EA00F9C685 /* Application */,
+				7C7A87D72E0D72EA00F9C685 /* ViewController.swift */,
+				7C7A87D22E0D72EA00F9C685 /* Resources */,
+				7C7A87D52E0D72EA00F9C685 /* Info.plist */,
+			);
+			path = LTechTest;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,11 +99,10 @@
 			);
 			dependencies = (
 			);
-			fileSystemSynchronizedGroups = (
-				7C7A87B72E0D71C400F9C685 /* LTechTest */,
-			);
 			name = LTechTest;
 			packageProductDependencies = (
+				7C7A87E02E0D741C00F9C685 /* Alamofire */,
+				7C7A87E32E0D7C6500F9C685 /* SnapKit */,
 			);
 			productName = LTechTest;
 			productReference = 7C7A87B52E0D71C400F9C685 /* LTechTest.app */;
@@ -107,6 +132,10 @@
 			);
 			mainGroup = 7C7A87AC2E0D71C400F9C685;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				7C7A87DF2E0D741C00F9C685 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				7C7A87E22E0D7C6500F9C685 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 7C7A87B62E0D71C400F9C685 /* Products */;
 			projectDirPath = "";
@@ -122,6 +151,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7A87D92E0D72EA00F9C685 /* Assets.xcassets in Resources */,
+				7C7A87DA2E0D72EA00F9C685 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,10 +163,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7C7A87DC2E0D72EA00F9C685 /* AppDelegate.swift in Sources */,
+				7C7A87DD2E0D72EA00F9C685 /* SceneDelegate.swift in Sources */,
+				7C7A87DE2E0D72EA00F9C685 /* ViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		7C7A87D12E0D72EA00F9C685 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7C7A87D02E0D72EA00F9C685 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		7C7A87C92E0D71C700F9C685 /* Debug */ = {
@@ -145,23 +190,27 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LTechTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.Wilwous.LTechTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LTechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -172,23 +221,27 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LTechTest/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = ru.Wilwous.LTechTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.LTechTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -333,6 +386,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7C7A87DF2E0D741C00F9C685 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.10.2;
+			};
+		};
+		7C7A87E22E0D7C6500F9C685 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7C7A87E02E0D741C00F9C685 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C7A87DF2E0D741C00F9C685 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+		7C7A87E32E0D7C6500F9C685 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7C7A87E22E0D7C6500F9C685 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7C7A87AD2E0D71C400F9C685 /* Project object */;
 }
