@@ -8,10 +8,16 @@
 import UIKit
 import SnapKit
 
+protocol AuthDisplayLogic: AnyObject {
+    func displayPhoneMask(viewModel: Auth.LoadPhoneMask.ViewModel)
+}
+
 final class AuthViewController: UIViewController {
     
     // MARK: - Private Properties
     
+    private var interactor: AuthBusinessLogic?
+    private var presenter: AuthPresentationLogic?
     private var signInButtonBottomConstraint: Constraint?
     private var keyboardHandler: KeyboardHandler?
     
@@ -79,7 +85,11 @@ final class AuthViewController: UIViewController {
         setupConstraints()
         setupTextFieldObservers()
         setupTapGesture()
-        keyboardHandler = KeyboardHandler(view: view, constraint: signInButtonBottomConstraint)
+        setupCleanSwift()
+        keyboardHandler = KeyboardHandler(
+            view: view,
+            constraint: signInButtonBottomConstraint
+        )
     }
     
     // MARK: - Setup View
@@ -141,6 +151,18 @@ final class AuthViewController: UIViewController {
         )
     }
     
+    private func setupCleanSwift() {
+        let interactor = AuthInteractor()
+        let presenter = AuthPresenter()
+        self.interactor = interactor
+        self.presenter = presenter
+        
+        interactor.presenter = presenter
+        presenter.viewController = self
+        
+        interactor.loadPhoneMask(request: .init())
+    }
+    
     @objc private func updateSignInButtonState() {
         let phone = phoneInput.textField.text ?? ""
         let password = passwordInput.textField.text ?? ""
@@ -171,5 +193,13 @@ final class AuthViewController: UIViewController {
     
     @objc private func hideKeyboard() {
         view.endEditing(true)
+    }
+}
+
+// MARK: - AuthDisplayLogic
+
+extension AuthViewController: AuthDisplayLogic {
+    func displayPhoneMask(viewModel: Auth.LoadPhoneMask.ViewModel) {
+        phoneInput.applyMask(viewModel.formattedMask)
     }
 }

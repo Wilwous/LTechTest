@@ -97,6 +97,14 @@ final class FormFieldView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Public Methods
+    
+    func applyMask(_ mask: String) {
+        if isPhoneField {
+            textField.text = "+7 "
+        }
+    }
+    
     // MARK: - Setup View
     
     private func addElements() {
@@ -126,6 +134,7 @@ final class FormFieldView: UIView {
         if isPhoneField {
             textField.text = "+7 "
             textField.rightView = clearButton
+            textField.keyboardType = .numberPad
         }
     }
     
@@ -160,21 +169,24 @@ extension FormFieldView: UITextFieldDelegate {
         replacementString string: String
     ) -> Bool {
         guard isPhoneField else { return true }
-        let current = textField.text ?? ""
-        guard let textRange = Range(range, in: current) else { return false }
-        let updated = current.replacingCharacters(in: textRange, with: string)
         
-        if updated.count < 4 {
+        let current = textField.text ?? ""
+        
+        if range.location < 3 {
             return false
         }
         
+        guard let textRange = Range(range, in: current) else { return false }
+        
+        let updated = current.replacingCharacters(in: textRange, with: string)
+        
         let digitsOnly = updated.filter { $0.isNumber }
-        let digits = digitsOnly.hasPrefix("7") ? String(digitsOnly.dropFirst()) : digitsOnly
-        let limited = String(digits.prefix(10))
+        
+        let digits = String(digitsOnly.dropFirst()).prefix(10)
         
         var result = "+7 "
         
-        for (i, char) in limited.enumerated() {
+        for (i, char) in digits.enumerated() {
             switch i {
             case 0:
                 result += "(\(char)"
@@ -183,11 +195,12 @@ extension FormFieldView: UITextFieldDelegate {
             case 5, 7:
                 result += "\(char)-"
             default:
-                result += String(char)
+                result += "\(char)"
             }
         }
         
         textField.text = result
+        onTextChanged?()
         return false
     }
     
