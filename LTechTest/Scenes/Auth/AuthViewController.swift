@@ -8,8 +8,11 @@
 import UIKit
 import SnapKit
 
+// MARK: - Protocol
+
 protocol AuthDisplayLogic: AnyObject {
     func displayPhoneMask(viewModel: Auth.LoadPhoneMask.ViewModel)
+    func displayLoginResult(viewModel: Auth.Login.ViewModel)
 }
 
 final class AuthViewController: UIViewController {
@@ -18,6 +21,7 @@ final class AuthViewController: UIViewController {
     
     private var interactor: AuthBusinessLogic?
     private var presenter: AuthPresentationLogic?
+    private var router: AuthRoutingLogic?
     private var signInButtonBottomConstraint: Constraint?
     private var keyboardHandler: KeyboardHandler?
     
@@ -72,6 +76,11 @@ final class AuthViewController: UIViewController {
         button.setTitleColor(.lWhite, for: .normal)
         button.layer.cornerRadius = 16
         button.isEnabled = false
+        button.addTarget(
+            self,
+            action: #selector(signInTapped),
+            for: .touchUpInside
+        )
         
         return button
     }()
@@ -86,6 +95,7 @@ final class AuthViewController: UIViewController {
         setupTextFieldObservers()
         setupTapGesture()
         setupCleanSwift()
+        autofillCredentials()
         keyboardHandler = KeyboardHandler(
             view: view,
             constraint: signInButtonBottomConstraint
@@ -135,6 +145,20 @@ final class AuthViewController: UIViewController {
         }
     }
     
+    private func setupCleanSwift() {
+        let interactor = AuthInteractor()
+        let presenter = AuthPresenter()
+        let router = AuthRouter()
+        
+        self.interactor = interactor
+        self.presenter = presenter
+        self.router = router
+        
+        interactor.presenter = presenter
+        presenter.viewController = self
+        router.viewController = self
+    }
+    
     // MARK: - Observers
     
     private func setupTextFieldObservers() {
@@ -151,16 +175,27 @@ final class AuthViewController: UIViewController {
         )
     }
     
-    private func setupCleanSwift() {
-        let interactor = AuthInteractor()
-        let presenter = AuthPresenter()
-        self.interactor = interactor
-        self.presenter = presenter
+    private func showLoginError() {
+        passwordInput.setError("Неверный пароль")
+    }
+    
+    // MARK: - Keychain
+    
+    private func autofillCredentials() {
+        if let phone = KeychainService.load(for: KeychainKeys.phone),
+           let password = KeychainService.load(for: KeychainKeys.password) {
+            phoneInput.textField.text = phone
+            passwordInput.textField.text = password
+            updateSignInButtonState()
+        }
+    }
+    
+    @objc private func signInTapped() {
+        let phone = phoneInput.textField.text ?? ""
+        let password = passwordInput.textField.text ?? ""
         
-        interactor.presenter = presenter
-        presenter.viewController = self
-        
-        interactor.loadPhoneMask(request: .init())
+        let request = Auth.Login.Request(phone: phone, password: password)
+        interactor?.login(request: request)
     }
     
     @objc private func updateSignInButtonState() {
@@ -201,5 +236,18 @@ final class AuthViewController: UIViewController {
 extension AuthViewController: AuthDisplayLogic {
     func displayPhoneMask(viewModel: Auth.LoadPhoneMask.ViewModel) {
         phoneInput.applyMask(viewModel.formattedMask)
+    }
+    
+    func displayLoginResult(viewModel: Auth.Login.ViewModel) {
+        if viewModel.isSuccess {
+            let phone = phoneInput.textField.text ?? ""
+            let password = passwordInput.textField.text ?? ""
+            KeychainService.save(phone, for: KeychainKeys.phone)
+            KeychainService.save(password, for: KeychainKeys.password)
+            
+            router?.routeToDevExam()
+        } else {
+            showLoginError()
+        }
     }
 }

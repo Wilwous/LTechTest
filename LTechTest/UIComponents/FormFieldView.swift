@@ -30,6 +30,11 @@ final class FormFieldView: UIView {
         text.layer.borderWidth = 1
         text.layer.borderColor = UIColor.lExtralightGray.cgColor
         text.delegate = self
+        text.addTarget(
+            self,
+            action: #selector(handleTextChange),
+            for: .editingChanged
+        )
         
         return text
     }()
@@ -75,6 +80,16 @@ final class FormFieldView: UIView {
         return button
     }()
     
+    private lazy var errorLabel: UILabel = {
+        let label = UILabel()
+        label.font = .systemFont(ofSize: 13)
+        label.textColor = .lRed
+        label.numberOfLines = 0
+        label.isHidden = true
+        
+        return label
+    }()
+    
     // MARK: - Init
     
     init(
@@ -105,11 +120,18 @@ final class FormFieldView: UIView {
         }
     }
     
+    func setError(_ text: String?) {
+        errorLabel.text = text
+        errorLabel.isHidden = text == nil
+        textField.layer.borderColor = text == nil ? UIColor.lExtralightGray.cgColor : UIColor.lRed.cgColor
+    }
+    
     // MARK: - Setup View
     
     private func addElements() {
         addSubview(titleLabel)
         addSubview(textField)
+        addSubview(errorLabel)
     }
     
     private func setupConstraints() {
@@ -119,8 +141,13 @@ final class FormFieldView: UIView {
         
         textField.snp.makeConstraints { make in
             make.top.equalTo(titleLabel.snp.bottom).offset(4)
-            make.leading.trailing.bottom.equalToSuperview()
+            make.leading.trailing.equalToSuperview()
             make.height.equalTo(48)
+            make.bottom.equalTo(errorLabel.snp.top).offset(-4)
+        }
+        
+        errorLabel.snp.makeConstraints { make in
+            make.leading.trailing.bottom.equalToSuperview()
         }
     }
     
@@ -156,6 +183,11 @@ final class FormFieldView: UIView {
     @objc private func clearPhoneField() {
         textField.text = "+7 "
         onClearTapped?()
+        onTextChanged?()
+    }
+    
+    @objc private func handleTextChange() {
+        setError(nil)
         onTextChanged?()
     }
 }

@@ -7,8 +7,11 @@
 
 import Foundation
 
+// MARK: - Protocol
+
 protocol AuthBusinessLogic {
     func loadPhoneMask(request: Auth.LoadPhoneMask.Request)
+    func login(request: Auth.Login.Request)
 }
 
 final class AuthInteractor: AuthBusinessLogic {
@@ -29,6 +32,19 @@ final class AuthInteractor: AuthBusinessLogic {
             case .failure:
                 let fallback = Auth.LoadPhoneMask.Response(mask: "+7 (###) ###-##-##")
                 self?.presenter?.presentPhoneMask(response: fallback)
+            }
+        }
+    }
+    
+    func login(request: Auth.Login.Request) {
+        worker.login(phone: request.phone, password: request.password) { [weak self] result in
+            switch result {
+            case .success(let success):
+                let response = Auth.Login.Response(success: success)
+                self?.presenter?.presentLoginResult(response: response)
+            case .failure:
+                let response = Auth.Login.Response(success: false)
+                self?.presenter?.presentLoginResult(response: response)
             }
         }
     }
