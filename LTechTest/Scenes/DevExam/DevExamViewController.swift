@@ -53,6 +53,7 @@ final class DevExamViewController: UIViewController {
     private lazy var tableView: UITableView = {
         let table = UITableView()
         table.dataSource = self
+        table.delegate = self
         table.separatorStyle = .none
         table.showsVerticalScrollIndicator = false
         table.rowHeight = UITableView.automaticDimension
@@ -177,5 +178,15 @@ extension DevExamViewController: UITableViewDataSource {
         cell.selectionStyle = .none
 
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension DevExamViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let post = posts[indexPath.row]
+        let detailVC = DevExamDetailViewController(post: post)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 }

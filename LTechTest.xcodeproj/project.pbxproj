@@ -33,6 +33,7 @@
 		7CE494112E14BCDE005E8272 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE494102E14BCD1005E8272 /* MainTabBarController.swift */; };
 		7CE494132E14BD16005E8272 /* PlaceholderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE494122E14BD14005E8272 /* PlaceholderViewController.swift */; };
 		7CE494152E14CF1A005E8272 /* DevExamSortViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE494142E14CF18005E8272 /* DevExamSortViewController.swift */; };
+		7CE494172E14DFE0005E8272 /* DevExamDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7CE494162E14DFD0005E8272 /* DevExamDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		7CE494102E14BCD1005E8272 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		7CE494122E14BD14005E8272 /* PlaceholderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceholderViewController.swift; sourceTree = "<group>"; };
 		7CE494142E14CF18005E8272 /* DevExamSortViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevExamSortViewController.swift; sourceTree = "<group>"; };
+		7CE494162E14DFD0005E8272 /* DevExamDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevExamDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -176,6 +178,7 @@
 				7CE494012E14A49B005E8272 /* DevExamModels.swift */,
 				7CE493FD2E149957005E8272 /* DevExamViewController.swift */,
 				7CE494142E14CF18005E8272 /* DevExamSortViewController.swift */,
+				7CE494162E14DFD0005E8272 /* DevExamDetailViewController.swift */,
 			);
 			path = DevExam;
 			sourceTree = "<group>";
@@ -275,6 +278,7 @@
 				7C266CA72E12CB0E005BBBED /* FormFieldView.swift in Sources */,
 				7C7A87DD2E0D72EA00F9C685 /* SceneDelegate.swift in Sources */,
 				7CE4940F2E14BA42005E8272 /* DateFormatterHelper.swift in Sources */,
+				7CE494172E14DFE0005E8272 /* DevExamDetailViewController.swift in Sources */,
 				7CE494112E14BCDE005E8272 /* MainTabBarController.swift in Sources */,
 				7CE494152E14CF1A005E8272 /* DevExamSortViewController.swift in Sources */,
 				7CE493FE2E149960005E8272 /* DevExamViewController.swift in Sources */,
