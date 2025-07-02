@@ -22,17 +22,17 @@ final class AuthRouter: AuthRoutingLogic {
     // MARK: - Public Methods
     
     func routeToDevExam() {
-        let devExamVC = DevExamViewController()
-        
+        let mainTabBar = MainTabBarController()
+
         guard let window = UIApplication.shared.connectedScenes
             .compactMap({ $0 as? UIWindowScene })
             .flatMap({ $0.windows })
             .first else {
             return
         }
-        
-        window.rootViewController = devExamVC
-        
+
+        window.rootViewController = mainTabBar
+
         UIView.transition(
             with: window,
             duration: 0.4,

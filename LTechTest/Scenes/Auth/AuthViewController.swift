@@ -89,7 +89,7 @@ final class AuthViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
+        view.backgroundColor = .lWhite
         addElements()
         setupConstraints()
         setupTextFieldObservers()
