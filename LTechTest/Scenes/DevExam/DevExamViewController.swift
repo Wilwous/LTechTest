@@ -74,6 +74,7 @@ final class DevExamViewController: UIViewController {
         setupNavigationBar()
         addElements()
         setupConstraints()
+        LoadingOverlay.shared.show(over: view)
         interactor?.loadPosts(request: .init())
     }
 
@@ -145,6 +146,7 @@ final class DevExamViewController: UIViewController {
     }
 
     @objc private func refreshData() {
+        LoadingOverlay.shared.show(over: view)
         interactor?.loadPosts(request: .init())
     }
 }
@@ -155,6 +157,7 @@ extension DevExamViewController: DevExamDisplayLogic {
     func displayPosts(viewModel: DevExam.LoadPosts.ViewModel) {
         self.posts = viewModel.items
         applySort(currentSort)
+        LoadingOverlay.shared.hide()
     }
 }
 

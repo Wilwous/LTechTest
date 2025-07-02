@@ -1,0 +1,22 @@
+# Xcode
+*.xcuserstate
+*.xcuserdata/
+*.xcworkspace/xcuserdata/
+*.xcworkspace/WorkspaceSettings.xcsettings
+
+# Build
+DerivedData/
+build/
+
+# Swift Package Manager
+.swiftpm/
+.swiftpm/xcode/
+Packages/
+Package.pins
+
+# Logs
+*.log
+
+# Other
+.DS_Store
+.idea/
